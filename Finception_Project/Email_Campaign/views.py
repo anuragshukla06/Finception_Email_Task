@@ -115,7 +115,9 @@ def send_email(request, articleId):
 
 def send_mail_parallel(i):
     subject, to_, html_message, plain_text = i
-    send_mail(subject, plain_text, "shukla.anurag0006@gmail.com", [to_], html_message=html_message)
+
+    from_ = "#########Please Enter your email here############"
+    send_mail(subject, plain_text, from_, [to_], html_message=html_message)
 
 
 
