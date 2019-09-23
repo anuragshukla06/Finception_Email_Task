@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <form method="post">
+      {% csrf_token %}
+      <div class="form-group">
+        <label for="email">Email address</label>
+        <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email" name="email"/>
+      <div class="form-group">
+        <label for="first_name">First Name</label>
+        <input type="text" class="form-control" id="first_name" placeholder="Your Name" name="first_name"/>
+      </div>
+      <button type="submit" class="btn btn-primary">Subscribe/Unsubscribe</button>
+      </div>
+    </form>
+
+    {%if flag == 0%}
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+      You Subscribed!
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    {%elif flag == -1%}
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+      You Unsubscribed :(!
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+  </div>
+    {%endif%}
+</div>
+
+
+
+{% endblock %}

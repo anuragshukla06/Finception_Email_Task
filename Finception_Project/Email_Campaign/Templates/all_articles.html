@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% if articles %}
+        <div class="container">
+            <table class="table table-bordered">
+                <tr>
+                    <th>Article Id</th>
+                    <th >Heading</th>
+<!--                    <th class="col-xs-2 d-inline-block text-truncate" style="min-width: 300px;overflow: hidden;white-space: nowrap;max-width: 300px;">Article</th>-->
+                    <th>Article url</th>
+                    <th>Send Email</th>
+                </tr>
+
+                {% for article in articles %}
+                    <tr>
+
+                        <td>{{article.id}}</td>
+                        <td>{{article.heading}}</td>
+<!--                        <td class="col-xs-2 d-inline-block text-truncate" style="min-width: 300px;white-space: nowrap;overflow: hidden;max-width: 300px;">{{article.article}}</td>-->
+                        <td><a href="{% url 'show_article' article.id%}">see article</a> </td>
+                        <td><a href="{% url 'send_email' article.id%}">send mail</a></td>
+
+                    </tr>
+                {% endfor %}
+
+            </table>
+        </div>
+
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container">
+    <h3>Welcome!</h3>
+    <ul>
+        <li><a href="{% url 'sub_page' %}">Head here to subscribe/unsubscribe</a> </li>
+        <li><a href="{% url 'post_blog' %}">Head here to post your own blog</a> </li>
+        <li><a href="{% url 'all_articles' %}">Head here to see all the articles and email them</a> </li>
+    </ul>
+</div>
+
+{% endblock %}
